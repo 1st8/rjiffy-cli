@@ -3,6 +3,42 @@ module Rjiffy
     class Base < Thor
       #include Thor::Actions
 
+      def self.show_wait_cursor(seconds,fps=8)
+        #chars = %w[⣾⣿ ⣽⣿ ⣻⣿ ⢿⣿ ⡿⣿ ⣿⢿ ⣿⡿ ⣿⣟ ⣿⣯ ⣿⣷ ⣿⣾ ⣷⣿]
+        #chars = %w[⠁⠂⠄⡀⢀⠠⠐⠈]
+        #chars = %w{⠙ ⠸ ⢰ ⣠ ⣄ ⡆ ⠇ ⠋}
+        chars = []
+        #chars << '⠉⠁'
+        #chars << '⠈⠙'
+        #chars << ' ⠙'
+        #chars << ' ⠸'
+        #chars << ' ⢰'
+        #chars << ' ⣠'
+        #chars << '⢀⣀'
+        #chars << '⣀⡀'
+        #chars << '⣄ '
+        #chars << '⡆ '
+        #chars << '⠇ '
+        #chars << '⠇ '
+        #chars << '⠋ '
+        chars << '⠈⠑'
+        chars << ' ⠱'
+        chars << ' ⡰'
+        chars << '⢀⡠'
+        chars << '⢄⡀'
+        chars << '⢆ '
+        chars << '⠎ '
+        chars << '⠊⠁'
+
+        delay = 1.0/fps
+        (seconds*fps).round.times{ |i|
+          str = "#{chars[i % chars.length]} "
+          print str
+          sleep delay
+          print "\b" * str.length
+        }
+      end
+
       def initialize(*)
         super
         Wrest.logger.level = Logger::INFO
@@ -20,6 +56,12 @@ module Rjiffy
         Rjiffy::Box.all.each do |box|
           puts "%6d %-25s %10s" % [box.id, box.name, box.status]
         end
+      end
+
+      desc 'test', 'test'
+      def test
+        print "Loading... "
+        self.class.show_wait_cursor 10
       end
 
       require 'rjiffy/cli/box'
