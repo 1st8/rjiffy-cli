@@ -1,6 +1,6 @@
 # RJiffy::Cli
 
-CLI for the (Jiffybox Cloudserver)[http://jiffybox.de] API, extending the [rjiffy](http://suchasurge.github.com/rjiffy/) library.
+CLI for the [Jiffybox Cloudserver](http://jiffybox.de) API, extending the [rjiffy](http://suchasurge.github.com/rjiffy/) library.
 
 ## Installation
 
