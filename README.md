@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-Set environment variable _JIFFY_TOKEN_ via `export JIFFY_TOKEN=my_token` to be able to access the API
+Set environment variable `JIFFY_TOKEN` (i.e. `export JIFFY_TOKEN=my_token`) to be able to access the API
 
 ### Show usage instructions
 
