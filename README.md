@@ -32,6 +32,15 @@ Set environment variable `JIFFY_TOKEN` (i.e. `export JIFFY_TOKEN=my_token`) to b
 
 `bundle exec jiffy {start|stop|freeze|thaw} BOX_ID`
 
+## TODO
+
+- Implement more actions
+- Implicit chained actions, shutdown before freeze. Require confirmation?
+- Make async actions nicer. Progress? Spinner?
+- Alias servers and use it instead of id, thus enfore whitelisting
+- Secure severe actions with confirmation
+- Colorful output
+
 ## Contributing
 
 1. Fork it
