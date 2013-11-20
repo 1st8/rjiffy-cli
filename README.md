@@ -1,4 +1,4 @@
-# RJiffy::Cli
+# RJiffy::CLI
 
 CLI for the [Jiffybox Cloudserver](http://jiffybox.de) API, extending the [rjiffy](http://suchasurge.github.com/rjiffy/) library.
 
