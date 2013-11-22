@@ -52,15 +52,17 @@ module Rjiffy
       else
         sleep(5)
         transition_status = box.reload.status
-        # wait till status changes
-        while box.status == transition_status
-          print "\rBox status: #{box.status}"
-          show_wait_spinner do
-            sleep(5)
-            box.reload
+        if transition_status != status.to_s
+          # wait till status changes
+          while box.status == transition_status
+            print "\rBox status: #{box.status}"
+            show_wait_spinner do
+              sleep(5)
+              box.reload
+            end
           end
+          print "\r"
         end
-        print "\r"
         # is result status expected status?
         if box.status == status.to_s
           puts "Transition complete, box is now #{box.status}. Took: #{Time.now - start}s"
