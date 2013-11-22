@@ -14,7 +14,7 @@ module Rjiffy
         box = Rjiffy::Box.find(box_id)
 
         if box.running
-          puts "Shutting box down..."
+          puts "Shutting box '#{box.name}' down..."
           CLI.wait_for :READY do
             box.shutdown
           end
@@ -30,7 +30,7 @@ module Rjiffy
         if box.running
           puts "This box is already running"
         else
-          puts "Starting box..."
+          puts "Starting box '#{box.name}'..."
           CLI.wait_for :READY do
             box.start
           end
@@ -41,7 +41,7 @@ module Rjiffy
       def freeze(box_id)
         box = Rjiffy::Box.find(box_id)
 
-        puts "Freezing box..."
+        puts "Freezing box '#{box.name}'..."
         CLI.wait_for :FROZEN do
           box.freeze
         end
@@ -52,7 +52,7 @@ module Rjiffy
         box = Rjiffy::Box.find(box_id)
         plan_id ||= box.plan.id
 
-        puts "Thawing box ..."
+        puts "Thawing box '#{box.name}'..."
         CLI.wait_for :READY do
           box.thaw(plan_id)
         end
